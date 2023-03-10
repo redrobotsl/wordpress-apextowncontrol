@@ -32,19 +32,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 
 /**
- * Class Api_For_Apex_Towncontrol_Run
+ * Class RR_APX_Shortcodes_Phonebook
  *
  * Thats where we bring the plugin to life
  *
  * @package		APIFORAPEX
- * @subpackage	Classes/Api_For_Apex_Towncontrol_Run
+ * @subpackage	Classes/RR_APX_Shortcodes_Phonebook
  * @author		Nolan Perry, LLC
  * @since		1.0.0
  */
-class Api_For_Apex_Towncontrol_Run{
+class RR_APX_Shortcodes_Phonebook{ 
 
 	/**
-	 * Our Api_For_Apex_Towncontrol_Run constructor 
+	 * Our RR_APX_Shortcodes_Phonebook constructor 
 	 * to run the plugin logic.
 	 *
 	 * @since 1.0.0
@@ -69,35 +69,45 @@ class Api_For_Apex_Towncontrol_Run{
 	 * @return	void
 	 */
 	private function add_hooks(){
-	
-		add_action( 'plugin_action_links_' . APIFORAPEX_PLUGIN_BASE, array( $this, 'add_plugin_action_link' ), 20 );
+	add_shortcode( 'show_town_phonebook', array( $this, 'create_show_town_phonebook_shortcode' ));
+    add_action( 'wp_enqueue_scripts', array( $this, 'rr_apx_requirements' ) );
+
 	
 	}
-
-	/**
-	 * ######################
-	 * ###
-	 * #### WORDPRESS HOOK CALLBACKS
-	 * ###
-	 * ######################
-	 */
-
-	/**
-	* Adds action links to the plugin list table
-	*
-	* @access	public
-	* @since	1.0.0
-	*
-	* @param	array	$links An array of plugin action links.
-	*
-	* @return	array	An array of plugin action links.
-	*/
-	public function add_plugin_action_link( $links ) {
-
-		$links['configure'] = sprintf( '<a href="%s" title="Configure your API Settings" style="font-weight:700;">%s</a>', 'options-general.php?page=towncontrol', __( 'Configure API Settings', 'api-for-apex-towncontrol' ) );
-
-		return $links;
+	public function rr_apx_requirements(){
+	    wp_enqueue_style( 'datatables-apex', '//cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css', false, '1.1', 'all');
+wp_enqueue_script( 'datatables-script-apex', '//cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js', array( 'jquery' ), 1.1 );
+	    
 	}
+	
+public function create_show_town_phonebook_shortcode( $atts = array(), $content = '' ) {
+
+ $api_key_0 = get_option( 'rr_apx_api_key' ); // Array of All Options
+$townuuid_1 = get_option( 'rr_apx_townuuid' );
+
+$output = '
+
+<table id="apexDirectory">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+        </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+</table>
+<script>
+let table = new DataTable("#apexDirectory");
+</script>
+
+';
+return $output;
+}
+
+
 	
 
 }

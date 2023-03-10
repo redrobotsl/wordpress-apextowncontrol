@@ -56,7 +56,7 @@ if ( ! class_exists( 'Api_For_Apex_Towncontrol' ) ) :
 		 * @var		object|Api_For_Apex_Towncontrol_Settings
 		 */
 		public $settings;
-
+        public $options;
 		/**
 		 * Throw error on object clone.
 		 *
@@ -99,7 +99,7 @@ if ( ! class_exists( 'Api_For_Apex_Towncontrol' ) ) :
 				self::$instance->includes();
 				self::$instance->helpers		= new Api_For_Apex_Towncontrol_Helpers();
 				self::$instance->settings		= new Api_For_Apex_Towncontrol_Settings();
-				self::$instance->options        = new Api_for_Apex_Towncontrol_Options();
+				self::$instance->options		= new Api_for_Apex_Towncontrol_Options();
 
 				//Fire the plugin logic
 				new Api_For_Apex_Towncontrol_Run();
@@ -109,6 +109,12 @@ if ( ! class_exists( 'Api_For_Apex_Towncontrol' ) ) :
 				 * after the successful plugin setup
 				 */
 				do_action( 'APIFORAPEX/plugin_loaded' );
+				
+				
+
+				self::$instance->options->towncontrol_register_stuff();
+                new RR_APX_Shortcodes_Arrests();
+                new RR_APX_Shortcodes_Phonebook();
 			}
 
 			return self::$instance;
@@ -128,6 +134,8 @@ if ( ! class_exists( 'Api_For_Apex_Towncontrol' ) ) :
 			require_once APIFORAPEX_PLUGIN_DIR . 'core/includes/classes/class-api-for-apex-towncontrol-run.php';
 			
 			require_once APIFORAPEX_PLUGIN_DIR . 'core/includes/classes/class-api-for-apex-towncontrol-options.php';
+			require_once APIFORAPEX_PLUGIN_DIR . 'core/includes/classes/class-rr-apx-shortcodes-arrests.php';
+			require_once APIFORAPEX_PLUGIN_DIR . 'core/includes/classes/class-rr-apx-shortcodes-phonebook.php';
 		}
 
 		/**
