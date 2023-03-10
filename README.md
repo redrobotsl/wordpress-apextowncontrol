@@ -1,16 +1,31 @@
 === API for Apex TownControl ===
+
 Contributors: iamnolanperry
+
 Tags: secondlife,second life,metaverse, sl, apex
+
 Donate link: https://www.paypal.com/donate/?hosted_button_id=2BMCGHVCM5KC2
+
 Requires at least: 6.1.1
+
 Tested up to: 6.1.1
+
 Requires PHP: 8.0
+
 Stable tag: trunk
+
 License: GPLv2
+
+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
+
 This is a plugin for Second Life and the Apex TownControl available from Virtual Roleplay Solutions
+
+
+
 ![GitHub Sponsors](https://img.shields.io/github/sponsors/redrobotsl)
+
 
 == Description ==
 The following shortcodes are available
