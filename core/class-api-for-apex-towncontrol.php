@@ -97,7 +97,6 @@ if ( ! class_exists( 'Api_For_Apex_Towncontrol' ) ) :
 				self::$instance					= new Api_For_Apex_Towncontrol;
 				self::$instance->base_hooks();
 				self::$instance->includes();
-				self::$instance->helpers		= new Api_For_Apex_Towncontrol_Helpers();
 				self::$instance->settings		= new Api_For_Apex_Towncontrol_Settings();
 				self::$instance->options		= new Api_for_Apex_Towncontrol_Options();
 
@@ -128,7 +127,6 @@ if ( ! class_exists( 'Api_For_Apex_Towncontrol' ) ) :
 		 * @return  void
 		 */
 		private function includes() {
-			require_once APIFORAPEX_PLUGIN_DIR . 'core/includes/classes/class-api-for-apex-towncontrol-helpers.php';
 			require_once APIFORAPEX_PLUGIN_DIR . 'core/includes/classes/class-api-for-apex-towncontrol-settings.php';
 
 			require_once APIFORAPEX_PLUGIN_DIR . 'core/includes/classes/class-api-for-apex-towncontrol-run.php';

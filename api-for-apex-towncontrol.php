@@ -10,7 +10,7 @@
  * @wordpress-plugin
  * Plugin Name:   API for Apex TownControl
  * Plugin URI:    https://darknebula.world/
- * Description:   This is a plugin for Second Life and the Apex TownControl available from Virtual Roleplay Solutions
+ * Description:   Apex
  * Version:       1.0.0
  * Author:        Nolan Perry, LLC
  * Author URI:    https://darknebula.world

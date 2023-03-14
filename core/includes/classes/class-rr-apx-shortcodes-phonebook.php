@@ -75,11 +75,11 @@ class RR_APX_Shortcodes_Phonebook{
 	
 	}
 	public function rr_apx_requirements(){
-	    wp_enqueue_style( 'datatables-apex', '//cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css', false, '1.1', 'all');
-wp_enqueue_script( 'datatables-script-apex', '//cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js', array( 'jquery' ), 1.1 );
-	    
+	     wp_enqueue_style( 'datatables-apex', 	APIFORAPEX_PLUGIN_URL .  'assets/jquery.dataTables.min.css', false, '1.1', 'all');
+wp_enqueue_script( 'datatables-script-apex', APIFORAPEX_PLUGIN_URL .  'assets/jquery.dataTables.min.js', array( 'jquery' ), 1.1 );
 	}
 	
+
 public function create_show_town_phonebook_shortcode( $atts = array(), $content = '' ) {
 
  $api_key_0 = get_option( 'rr_apx_api_key' ); // Array of All Options
