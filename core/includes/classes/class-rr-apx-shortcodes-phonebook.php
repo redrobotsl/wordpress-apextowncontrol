@@ -79,7 +79,58 @@ class RR_APX_Shortcodes_Phonebook{
 wp_enqueue_script( 'datatables-script-apex', APIFORAPEX_PLUGIN_URL .  'assets/jquery.dataTables.min.js', array( 'jquery' ), 1.1 );
 	}
 	
+	public function apx_ctz_handler_json() {
 
+
+		$api_key_0 = get_option( 'rr_apx_api_key' ); // Array of All Options
+		$townuuid_1 = get_option( 'rr_apx_townuuid' );
+		
+		$theurltouse = 'http://www.apexdesignssl.com/api/towncontrol/TownRegistration/List/' . $townuuid_1 . '/:type';
+		$args = array(
+			'headers' => array(
+				'token' => $api_key_0
+			)
+		);
+		$response = wp_remote_get( $theurltouse, $args );
+		
+		$bodyofchrist =  wp_remote_retrieve_body( $response );
+		$d1 = json_decode($bodyofchrist);
+$d2 = "";
+foreach ($d1 as $query)
+{
+   
+      $d2 .= $this->APXgetDirectory($query);
+    
+
+}
+
+		 return $d2;
+		}
+			
+
+	
+
+public function APXgetDirectory($personfind){
+
+	$api_key_0 = get_option( 'rr_apx_api_key' ); // Array of All Options
+	$townuuid_1 = get_option( 'rr_apx_townuuid' );
+	
+	$theurltouse = 'http://www.apexdesignssl.com/api/towncontrol/TownRegistration/Get/' . $townuuid_1 . '/' . $personfind->townRegistrationId;
+	$args = array(
+		'headers' => array(
+			'token' => $api_key_0
+		)
+	);
+	$response = wp_remote_get( $theurltouse, $args );
+	
+	$bodyofchrist =  wp_remote_retrieve_body( $response );
+	$query = json_decode($bodyofchrist);
+//return $bodyofchrist;
+
+return "<tr><td>" . $query->lastName . ", " . $query->firstName . " " . $query->middleName . "</td><td>" . $query->address . "</td><td>" . $query->phoneNumber . "</td></tr>";
+
+
+}
 public function create_show_town_phonebook_shortcode( $atts = array(), $content = '' ) {
 
  $api_key_0 = get_option( 'rr_apx_api_key' ); // Array of All Options
@@ -96,11 +147,15 @@ $output = '
         </tr>
     </thead>
     <tbody>
-      
+      '
+.     $this->apx_ctz_handler_json() .
+
+	  '
     </tbody>
 </table>
 <script>
 let table = new DataTable("#apexDirectory");
+
 </script>
 
 ';
