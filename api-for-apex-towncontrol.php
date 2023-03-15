@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 define( 'APIFORAPEX_NAME',			'API for Apex TownControl' );
 
 // Plugin version
-define( 'APIFORAPEX_VERSION',		'1.0.0' );
+define( 'APIFORAPEX_VERSION',		'1.0.1' );
 
 // Plugin Root File
 define( 'APIFORAPEX_PLUGIN_FILE',	__FILE__ );
