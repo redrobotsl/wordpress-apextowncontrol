@@ -81,7 +81,9 @@ wp_enqueue_script( 'datatables-script-apex', APIFORAPEX_PLUGIN_URL .  'assets/jq
 	
 	public function apx_ctz_handler_json() {
 
-
+		if( get_transient( 'APXcitizens' ) ) {
+			return get_transient( 'APXcitizens' );
+		} else {
 		$api_key_0 = get_option( 'rr_apx_api_key' ); // Array of All Options
 		$townuuid_1 = get_option( 'rr_apx_townuuid' );
 		
@@ -103,8 +105,13 @@ foreach ($d1 as $query)
     
 
 }
+set_transient( 'APXcitizens', $d2, DAY_IN_SECONDS );
 
 		 return $d2;
+
+
+
+}
 		}
 			
 
