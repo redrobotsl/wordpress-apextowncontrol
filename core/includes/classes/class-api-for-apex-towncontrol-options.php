@@ -85,7 +85,8 @@ return	sanitize_text_field( $input );
 	public function towncontrol_section_info() {
 		echo "Set your API Key and Town UUID Below<br><br>The following shortcodes are available<br><ul><li><b>[show_town_arrests time='720']</b> - This shows all the towns arrests in within the last 30 days by default but can be changed by changing the attribute 'time', which is in hours.  </li>
 		
-		
+		<li><b>[show_town_phonebook]</b> - This shows the entirety of citizens registered in your town by their name, address, and the phone number. (hint: this is a solution for the NorPhone.)</li></ul>
+
 	
 		
 		<br> <br>
@@ -93,7 +94,6 @@ return	sanitize_text_field( $input );
 		<p>The following command are under development and will be available in a further update:</p>
 		
 		<ul>
-			<li><b>[show_town_phonebook]</b> - This shows the entirety of citizens registered in your town by their name, address, and the phone number. (hint: this is a solution for the NorPhone.)</li></ul>
   <li><b>[show_town_warrants]</b> - Shows any Active Warrants.(Be Cautious of this being used IC)</li>
    <li><b>[show_town_laws]</b> - Shows Citizens all of the Laws of the Selected Town. </li>
      <li><b>[show_town_incidents]</b> - A Transparency Function, letting citizens see short narratives of what happened on each incident, let's them know where the taxpayer money is going.</li>
