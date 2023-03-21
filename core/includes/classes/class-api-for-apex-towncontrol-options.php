@@ -83,9 +83,15 @@ return	sanitize_text_field( $input );
 	}
 
 	public function towncontrol_section_info() {
-		echo "Set your API Key and Town UUID Below<br><br>The following shortcodes are available<br><ul><li><b>[show_town_arrests time='720']</b> - This shows all the towns arrests in within the last 30 days by default but can be changed by changing the attribute 'time', which is in hours.  </li>
+		echo "Set your API Key and Town UUID Below<br><br>The following shortcodes are available<br>
 		
-		<li><b>[show_town_phonebook]</b> - This shows the entirety of citizens registered in your town by their name, address, and the phone number. (hint: this is a solution for the NorPhone.)</li></ul>
+		
+		<ul>
+		
+		<li><b>[show_town_arrests time='720']</b> - This shows all the towns arrests in within the last 30 days by default but can be changed by changing the attribute 'time', which is in hours.  </li>
+		<li><b>[show_town_phonebook]</b> - This shows the entirety of citizens registered in your town by their name, address, and the phone number. (hint: this is a solution for the NorPhone.)</li>
+		<li><b>[show_town_roster group='police']</b> - This shows all your staff on the roster for the specified group, group can be 'police', 'fire', 'legal','service', 'education', and will default to police if you don't specify</li>
+		</ul>
 
 	
 		

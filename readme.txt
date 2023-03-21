@@ -16,6 +16,7 @@ This is a plugin for Second Life and the Apex TownControl available from Virtual
 The following shortcodes are available
 [show_town_arrests time=\'720\'] - This shows all the towns arrests in within the last 30 days by default but can be changed by changing the attribute \'time\', which is in hours.
 [show_town_phonebook] - This shows the entirety of citizens registered in your town by their name, address, and the phone number. (hint: this is a solution for the NorPhone.)
+[show_town_roster group='police']- This shows all your staff on the roster for the specified group, group can be 'police', 'fire', 'legal','service', 'education', and will default to police if you don't specify.
 
 
 The following command are under development and will be available in a further update:
@@ -43,7 +44,8 @@ none yet!
 2. Demo Arrests Page
 
 == Changelog ==
-
+= 1.0.2: March 21, 2023 = 
+* Added Roster Shortcode
 = 1.0.1: March 14, 2023 =
 * Added Phonebook Shortcode
 = 1.0.0: March 10, 2023 =

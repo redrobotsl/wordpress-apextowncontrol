@@ -114,6 +114,8 @@ if ( ! class_exists( 'Api_For_Apex_Towncontrol' ) ) :
 				self::$instance->options->towncontrol_register_stuff();
                 new RR_APX_Shortcodes_Arrests();
                 new RR_APX_Shortcodes_Phonebook();
+				new RR_APX_Shortcodes_Roster();
+
 			}
 
 			return self::$instance;
@@ -134,6 +136,7 @@ if ( ! class_exists( 'Api_For_Apex_Towncontrol' ) ) :
 			require_once APIFORAPEX_PLUGIN_DIR . 'core/includes/classes/class-api-for-apex-towncontrol-options.php';
 			require_once APIFORAPEX_PLUGIN_DIR . 'core/includes/classes/class-rr-apx-shortcodes-arrests.php';
 			require_once APIFORAPEX_PLUGIN_DIR . 'core/includes/classes/class-rr-apx-shortcodes-phonebook.php';
+			require_once APIFORAPEX_PLUGIN_DIR . 'core/includes/classes/class-rr-apx-shortcodes-roster.php';
 
 
 		}
